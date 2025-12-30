@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Recipe Calculator"
+version = "0.1.0"
+description = "A Kivy-based recipe calculator application for managing ingredients and products"
+requires-python = ">=3.8"
+dependencies = [
+    "kivy>=2.2.0",
+]
+
+[tool.briefcase]
+project_name = "Recipe Calculator"
+bundle = "org.recipecalculator"
+version = "0.1.0"
+description = "A Kivy-based recipe calculator application"
+
+[tool.briefcase.app.recipecalculator]
+formal_name = "Recipe Calculator"
+description = "Recipe Calculator"
+bundle = "org.recipecalculator"
+url = "https://example.com"
+author = "Developer"
+author_email = "dev@example.com"
+version = "0.1.0"
+license = "MIT"
+
+[tool.briefcase.app.recipecalculator.windows]
+requires = []
+
+[tool.briefcase.app.recipecalculator.linux]
+requires = []
+
+[tool.briefcase.app.recipecalculator.macOS]
+requires = []
+
+[tool.briefcase.app.recipecalculator.android]
+requires = ["kivy"]
+permissions = [
+    "android.permission.INTERNET",
+    "android.permission.ACCESS_FINE_LOCATION",
+    "android.permission.WRITE_EXTERNAL_STORAGE",
+    "android.permission.READ_EXTERNAL_STORAGE",
+]
+manifest_version = 10
+target_api = 34
+compile_sdk = 34
+min_sdk = 21
+build_tools_version = "34.0.0"
+
+[tool.briefcase.app.recipecalculator.iOS]
+requires = []
