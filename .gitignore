@@ -29,6 +29,7 @@ MANIFEST
 
 # PyInstaller
 *.manifest
+!buildozer.spec
 *.spec
 
 # Unit test / coverage reports
