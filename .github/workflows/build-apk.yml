@@ -35,8 +35,13 @@ jobs:
       shell: bash
       run: |
         echo "Installing required Android SDK components (platform-tools, platforms;android-34, build-tools;34.0.0)"
+        # Ensure cmdline-tools are on PATH (sdkmanager may be in cmdline-tools)
+        export PATH="$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/bin:$PATH"
+        # Accept licenses (ignore non-zero exit)
         yes | sdkmanager --licenses || true
+        # Install required components
         sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+        # Export build-tools and platform-tools to PATH for subsequent steps
         echo "PATH=${ANDROID_SDK_ROOT}/build-tools/34.0.0:${ANDROID_SDK_ROOT}/platform-tools:$PATH" >> $GITHUB_ENV
     
     - name: Install dependencies
